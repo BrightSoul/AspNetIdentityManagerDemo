@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using AspNetIdentityManagerDemo.Migrations;
 
 namespace AspNetIdentityManagerDemo.Models
 {
@@ -23,7 +24,7 @@ namespace AspNetIdentityManagerDemo.Models
 
         static ApplicationDbContext()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public ApplicationDbContext()
